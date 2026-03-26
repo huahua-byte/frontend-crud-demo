@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo CRUD App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="toast-stack" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <main class="app">
+      <section class="app__panel">
+        <header class="app__header">
+          <p class="app__eyebrow">Local Todo Manager</p>
+          <h1 class="app__title">Track tasks without leaving the browser.</h1>
+          <p class="app__intro">
+            Add, edit, and remove notes. Everything is stored in localStorage and survives refresh.
+          </p>
+        </header>
+
+        <section class="todo-form" aria-labelledby="todo-form-title">
+          <div class="todo-form__heading">
+            <h2 id="todo-form-title" class="todo-form__title">Add a todo</h2>
+            <p class="todo-form__subtitle" id="todo-form-mode-text">Create a new item.</p>
+          </div>
+
+          <form id="todo-form" novalidate>
+            <input type="hidden" id="todo-id" name="todo-id" />
+
+            <div class="todo-form__field">
+              <label class="todo-form__label" for="title">Title</label>
+              <input
+                class="todo-form__input"
+                id="title"
+                name="title"
+                type="text"
+                maxlength="80"
+                required
+                placeholder="Buy groceries"
+              />
+            </div>
+
+            <div class="todo-form__field">
+              <label class="todo-form__label" for="description">Description</label>
+              <textarea
+                class="todo-form__input todo-form__input--textarea"
+                id="description"
+                name="description"
+                rows="4"
+                maxlength="240"
+                placeholder="Add optional details"
+              ></textarea>
+            </div>
+
+            <div class="todo-form__actions">
+              <button class="button button--primary" id="submit-button" type="submit">Add</button>
+              <button class="button button--ghost" id="cancel-button" type="button" hidden>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section class="todo-list" aria-labelledby="todo-list-title">
+        <div class="todo-list__header">
+          <h2 id="todo-list-title" class="todo-list__title">Your todos</h2>
+          <p class="todo-list__subtitle">Tap any card to edit, or use the action buttons.</p>
+        </div>
+
+        <ul class="todo-list__items" id="todo-list-items"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
